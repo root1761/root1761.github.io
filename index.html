@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Louyp - 目光所至，心之所向</title><meta name="keywords" content="后端java,git,svn,mybatis,hibernate,minio,kafka,dubbo,mongodb,activemq,elasticsearch,zookeeper,shiro,linux,lucence,springmvc,spring, springboot,eureka,zuul,feign,hystrix,ribbon,openfeign,config,nginx,mycat,elk,程序猿,js,jquery,easyui,oracle,mysql, poi,echarts,hadoop,spark,hive,hbase,flume,activiti,nacos,nexus,maxcomputer,gateway,spring security,oauth2,jwt seata,gateway,postgresql,datax,Sentinel,xxl_job,"><meta name="author" content="Louyp"><meta name="copyright" content="Louyp"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="目光所至，心之所向">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Louyp">
+<meta property="og:url" content="https://root1761.github.io/index.html">
+<meta property="og:site_name" content="Louyp">
+<meta property="og:description" content="目光所至，心之所向">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://root1761.github.io/assets/blogImg/tx.jpg">
+<meta property="article:author" content="Louyp">
+<meta property="article:tag" content="后端java,git,svn,mybatis,hibernate,minio,kafka,dubbo,mongodb,activemq,elasticsearch,zookeeper,shiro,linux,lucence,springmvc,spring, springboot,eureka,zuul,feign,hystrix,ribbon,openfeign,config,nginx,mycat,elk,程序猿,js,jquery,easyui,oracle,mysql, poi,echarts,hadoop,spark,hive,hbase,flume,activiti,nacos,nexus,maxcomputer,gateway,spring security,oauth2,jwt seata,gateway,postgresql,datax,Sentinel,xxl_job,">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://root1761.github.io/assets/blogImg/tx.jpg"><link rel="shortcut icon" href="/assets/blogImg/favicon.jpg"><link rel="canonical" href="https://root1761.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Louyp',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-08-11 17:49:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Louyp" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/blogImg/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/assets/blogImg/top.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Louyp</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Louyp</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/spark.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spark基本介绍及使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用">spark基本介绍及使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-05T02:09:00.000Z" title="发表于 2022-08-05 10:09:00">2022-08-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/spark/">spark</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/08/04/hello-world/" title="Hello World"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/hexo.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/04/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-04T01:54:04.354Z" title="发表于 2022-08-04 09:54:04">2022-08-04</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/nacos.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nacos安装及使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用">nacos安装及使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-06T02:20:00.000Z" title="发表于 2021-04-06 10:20:00">2021-04-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/nacos/">nacos</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/security.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springcloud+spring security oauth2+jwt实现单点登录"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录">springcloud+spring security oauth2+jwt实现单点登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-20T09:10:00.000Z" title="发表于 2021-01-20 17:10:00">2021-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/security/">security</a></span></div><div class="content">一、SSO基本介绍 SSO（Single Sign-On，单点登录）是身份管理中的一部分。SSO的一种较为通俗的定义是：SSO是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。它包括可以将这次主要的登录映射到其他应用中用于同一个用户的登录的机制。它是目前比较流行的企业业务整合的解决方案之一。 相关技术主要有：spring security ，shiro
+二、spring security 基本实现1.引入pom依赖
+1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;&lt;/dependency&gt;
+2.添加配置文件
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/cloud-ali.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里微服务开发相关介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍">阿里微服务开发相关介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-20T01:18:00.000Z" title="发表于 2021-01-20 09:18:00">2021-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/">阿里微服务</a></span></div><div class="content">一、微服务基本介绍微服务 - 也被称为微服务架构 - 是一种架构风格，它是使一个整合了业务功能的程序成为一个松耦合服务的架构。微服务架构使大型的，复杂的应用程序，可以连续快速的实现和部署。另外，它也使得企业可以发展自己的技术栈体系。
+微服务不是银弹微服务架构不是银弹，它有几个缺点。此外，采用这种架构的时候，你必须解决许多问题。微服务架构模式语言是一系列实现微服务架构模式的集合。 它有两个目标：1，模式语言使您能够决定微服务是否一个非常适合你的应用程序。2，模式语言使您能够成功使用微服务架构。
+二、微服务组成部分服务注册与发现：nacos、eureka、consul、zookeeper配置中心：nacos 、config路由网关：gateway、zuul链路追踪：zipkin 、Sleuth服务调用：ribbon、feign分布式事务：seata服务总线：bus、nacos熔断与限流：hystrix、Sentinel、resilience4j日志收集：ELK工作流：Flowable、activiti任务调度：xxl-job、power-job
+
+三、父工程搭建12345678910111 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" title="hadoop基本介绍和安装使用"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/hadoop.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hadoop基本介绍和安装使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" title="hadoop基本介绍和安装使用">hadoop基本介绍和安装使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-26T01:01:00.000Z" title="发表于 2020-07-26 09:01:00">2020-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/hadoop/">hadoop</a></span></div><div class="content">一.hadoop基本介绍Hadoop由HDFS、MapReduce、HBase、Hive和ZooKeeper等成员组成，其中最重要的是底层用于存储集群中所有存储节点文件的文件系HDFS（Hadoop Distributed File System）和上层用来执行MapReduce程序的MapReduce引擎
+
+1、Pig是一个基于Hadoop的大规模数据分析平台，Pig为复杂的海量数据并行计算提供了一个简易的操作和编程接口2、Chukwa是基于Hadoop的集群监控系统，由yahoo贡献hive是基于Hadoop的一个工具，提供完整的sql查询功能，可以将sql语句转换为MapReduce任务进行运行3、ZooKeeper：高效的，可扩展的协调系统,存储和协调关键共享状态4、HBase是一个开源的，基于列存储模型的分布式数据库5、HDFS是一个分布式文件系统。有着高容错性的特点，并且设计用来部署在低廉的硬件上，适合那些有着超大数据集的应用程序6、MapReduce是一种编程模型，用于大规模数据集（大于1TB）的并行运算
+
+
+下图是一个典型的Hadoop试验集群的部署结构：
+
+
+Hado ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="zookeeper安装使用及集群搭建"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="zookeeper安装使用及集群搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="zookeeper安装使用及集群搭建">zookeeper安装使用及集群搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-07-08T14:55:00.000Z" title="发表于 2020-07-08 22:55:00">2020-07-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/zookeeper/">zookeeper</a></span></div><div class="content">ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。
+1.zookeeper安装12wget https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gztar -zxvf apache-zookeeper-3.6.1-bin.tar.gz
+1.解压完成后修改配置文件，创建并修改存储数据的目录
+12vi zoo.cfgdataDir=/home/zookeeper/zkdata
+
+
+2.配置完成后，启动zookeeper
+1./bin/zkServer.sh start ./conf/zoo.cfg
+3.启动成功后，通过客户端连接zookeeper
+1./bin/zkCli.sh -server 10.0.0.1:2181
+zookeeper常用命令：
+ ls ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="minio安装及集群搭建"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/minio.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="minio安装及集群搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="minio安装及集群搭建">minio安装及集群搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-28T12:25:00.000Z" title="发表于 2020-05-28 20:25:00">2020-05-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/minio/">minio</a></span></div><div class="content">Minio 是一个基于Go语言的对象存储服务。它实现了大部分亚马逊S3云存储服务接口，可以看做是是S3的开源版本，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。
+
+
+
+项目
+参数
+
+
+
+最大驱动器数量
+16
+
+
+最小驱动器数量
+4
+
+
+读仲裁
+n&#x2F;2
+
+
+写仲裁
+n&#x2F;2+1
+
+
+最大桶数
+无限制
+
+
+每桶最大对象数
+无限制
+
+
+最大对象大小
+5TB
+
+
+最小对象大小
+0
+
+
+每次 PUT 操作的最大对象大小
+5GB
+
+
+每次上传的最大 Part 数量
+10000
+
+
+Part 大小
+5MB到5GB. 最后一个part可以从0B到5GB
+
+
+每次list parts请求可返回的part最大数量
+1000
+
+
+每次list objects请求可返回的object最大数量
+1000
+
+
+每次list multipart uploads请求可返回的multipart uploads最大数量
+1000
+
+
+一.minio基本原理1.minio基本特点
+高性能：作为高性 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/05/08/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90utterances%E8%AF%84%E8%AE%BA/" title="Hexo博客主题yilia集成utterances评论"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2020/05/08/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90utterances%E8%AF%84%E8%AE%BA/utterances.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客主题yilia集成utterances评论"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/08/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90utterances%E8%AF%84%E8%AE%BA/" title="Hexo博客主题yilia集成utterances评论">Hexo博客主题yilia集成utterances评论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-08T13:05:00.000Z" title="发表于 2020-05-08 21:05:00">2020-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/git/">git</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/git/utterances/">utterances</a></span></div><div class="content">utterances 是一款基于 GitHub issues 的评论工具。
+相比同类的工具 gitment、gitalk 以及 disqus 评论工具，优点如下：
+1.极其轻量2.加载非常快3.配置比较简单
+
+
+1.utterances 安装github 安装地址：https://github.com/apps/utterances首先安装这个 App ，选择要关联评论的仓库。可以选择所有仓库，也可以只选择一个仓库。选择一个仓库比较安全
+
+
+2.utterances 使用在themes&#x2F;yilia&#x2F;layout&#x2F;_partial&#x2F;article.ejs下添加以下代码：
+12345678910111213141516&lt;!-- 《utteranc评论：基于github issue的评论系统 --&gt;&lt;% if (theme.utterance &amp;&amp; theme.utterance.enable)&#123; %&gt;    &lt;section id=&quot;comments&quot; class=&quot ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/05/05/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90Gitment%E8%AF%84%E8%AE%BA/" title="Hexo博客主题yilia集成Gitment评论"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2020/05/05/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90Gitment%E8%AF%84%E8%AE%BA/gitment.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客主题yilia集成Gitment评论"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/05/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98yilia%E9%9B%86%E6%88%90Gitment%E8%AF%84%E8%AE%BA/" title="Hexo博客主题yilia集成Gitment评论">Hexo博客主题yilia集成Gitment评论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-05T12:56:00.000Z" title="发表于 2020-05-05 20:56:00">2020-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/git/">git</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/git/Gitment/">Gitment</a></span></div><div class="content">1.博客目录下使用npm下载gitment插件
+1npm install --save gitment
+2.git注册OAuth Application地址:登陆git——&gt;点击头像——&gt;settings——&gt;Developer settings ——&gt;OAuth Apps——&gt;New OAuth App
+Application name: 应用名Homepage URL: 应用程序主页的完整URLApplication description: 应用说明Authoriztion callback URL: 授权回调URL
+
+
+
+3.修改hexo主题yilia的_config配置
+12345gitment_owner: root1761      #你的 GitHub IDgitment_repo: &#x27;root1761.github.io&#x27;          #存储评论的 repogitment_oauth:  client_id: &#x27;&#x27;           #client ID  client_secret: &# ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/blogImg/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Louyp</div><div class="author-info__description">目光所至，心之所向</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/spark.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spark基本介绍及使用"/></a><div class="content"><a class="title" href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用">spark基本介绍及使用</a><time datetime="2022-08-05T02:09:00.000Z" title="发表于 2022-08-05 10:09:00">2022-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/04/hello-world/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/assets/hexo.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/08/04/hello-world/" title="Hello World">Hello World</a><time datetime="2022-08-04T01:54:04.354Z" title="发表于 2022-08-04 09:54:04">2022-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/nacos.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nacos安装及使用"/></a><div class="content"><a class="title" href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用">nacos安装及使用</a><time datetime="2021-04-06T02:20:00.000Z" title="发表于 2021-04-06 10:20:00">2021-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/security.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springcloud+spring security oauth2+jwt实现单点登录"/></a><div class="content"><a class="title" href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录">springcloud+spring security oauth2+jwt实现单点登录</a><time datetime="2021-01-20T09:10:00.000Z" title="发表于 2021-01-20 17:10:00">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/cloud-ali.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里微服务开发相关介绍"/></a><div class="content"><a class="title" href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍">阿里微服务开发相关介绍</a><time datetime="2021-01-20T01:18:00.000Z" title="发表于 2021-01-20 09:18:00">2021-01-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/Gitment/"><span class="card-category-list-name">Gitment</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/utterances/"><span class="card-category-list-name">utterances</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="card-category-list-name">大数据</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/hadoop/"><span class="card-category-list-name">hadoop</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/spark/"><span class="card-category-list-name">spark</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/zookeeper/"><span class="card-category-list-name">zookeeper</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="card-category-list-name">微服务</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/git/" style="font-size: 1.23em; color: #999ea6">git</a> <a href="/tags/hadoop/" style="font-size: 1.1em; color: #999">hadoop</a> <a href="/tags/hexo/" style="font-size: 1.23em; color: #999ea6">hexo</a> <a href="/tags/java/" style="font-size: 1.37em; color: #99a4b2">java</a> <a href="/tags/jwt/" style="font-size: 1.1em; color: #999">jwt</a> <a href="/tags/linux/" style="font-size: 1.5em; color: #99a9bf">linux</a> <a href="/tags/minio/" style="font-size: 1.1em; color: #999">minio</a> <a href="/tags/oauth2/" style="font-size: 1.1em; color: #999">oauth2</a> <a href="/tags/spark/" style="font-size: 1.1em; color: #999">spark</a> <a href="/tags/springcloud/" style="font-size: 1.23em; color: #999ea6">springcloud</a> <a href="/tags/zookeeper/" style="font-size: 1.1em; color: #999">zookeeper</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">10</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-08-11T09:49:39.271Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-11T09:49:39.281Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Louyp</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = []
+        sub.unshift(data.hitokoto, from)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="3778678" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-lrcType="-1"> </div>;<script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
