@@ -206,6 +206,13 @@
   </url>
   
   <url>
+    <loc>https://root1761.github.io/tags/minio/</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://root1761.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -242,13 +249,6 @@
   
   <url>
     <loc>https://root1761.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://root1761.github.io/tags/minio/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -320,6 +320,13 @@
   </url>
   
   <url>
+    <loc>https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/minio/</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/nacos/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -328,13 +335,6 @@
   
   <url>
     <loc>https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/spark/</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/minio/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

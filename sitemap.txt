@@ -22,13 +22,13 @@ https://root1761.github.io/tags/linux/
 https://root1761.github.io/tags/hadoop/
 https://root1761.github.io/tags/java/
 https://root1761.github.io/tags/%E9%9A%8F%E7%AC%94/
+https://root1761.github.io/tags/minio/
 https://root1761.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/
 https://root1761.github.io/tags/nacos/
 https://root1761.github.io/tags/springcloud/
 https://root1761.github.io/tags/spark/
 https://root1761.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/
 https://root1761.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/
-https://root1761.github.io/tags/minio/
 https://root1761.github.io/tags/oauth2/
 https://root1761.github.io/tags/jwt/
 https://root1761.github.io/tags/zookeeper/
@@ -38,9 +38,9 @@ https://root1761.github.io/categories/git/Gitment/
 https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/
 https://root1761.github.io/categories/git/utterances/
 https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/hadoop/
+https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/minio/
 https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/nacos/
 https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/spark/
-https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/minio/
 https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/security/
 https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/zookeeper/
 https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/
