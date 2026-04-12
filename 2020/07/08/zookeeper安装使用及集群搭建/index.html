@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>zookeeper安装使用及集群搭建 | Louyp</title><meta name="keywords" content="linux,zookeeper"><meta name="author" content="Louyp"><meta name="copyright" content="Louyp"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。 ZooKeeper的实际应用场景ZooKeeper作为分布式协调服务，在企业级应用中有着广泛的应用场景：  服务注册与发现：作为服务注册中心，管理微">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zookeeper安装使用及集群搭建">
+<meta property="og:url" content="https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="Louyp">
+<meta property="og:description" content="ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。 ZooKeeper的实际应用场景ZooKeeper作为分布式协调服务，在企业级应用中有着广泛的应用场景：  服务注册与发现：作为服务注册中心，管理微">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg">
+<meta property="article:published_time" content="2020-07-08T14:55:00.000Z">
+<meta property="article:modified_time" content="2026-04-12T02:19:02.278Z">
+<meta property="article:author" content="Louyp">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="zookeeper">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg"><link rel="shortcut icon" href="/assets/blogImg/favicon.jpg"><link rel="canonical" href="https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.27/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1.2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'zookeeper安装使用及集群搭建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-04-12 10:19:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Louyp" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/assets/blogImg/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Louyp</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">zookeeper安装使用及集群搭建<a class="post-edit-link" href="https://github.com/root1761/hexo/tree/main/source/_posts/zookeeper安装使用及集群搭建.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-08T14:55:00.000Z" title="发表于 2020-07-08 22:55:00">2020-07-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-12T02:19:02.278Z" title="更新于 2026-04-12 10:19:02">2026-04-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/zookeeper/">zookeeper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="zookeeper安装使用及集群搭建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
+<h3 id="ZooKeeper的实际应用场景"><a href="#ZooKeeper的实际应用场景" class="headerlink" title="ZooKeeper的实际应用场景"></a>ZooKeeper的实际应用场景</h3><p>ZooKeeper作为分布式协调服务，在企业级应用中有着广泛的应用场景：</p>
+<ol>
+<li><p><strong>服务注册与发现</strong>：作为服务注册中心，管理微服务实例的注册和发现。</p>
+</li>
+<li><p><strong>配置管理</strong>：集中管理分布式应用的配置信息，实现配置的动态更新。</p>
+</li>
+<li><p><strong>分布式锁</strong>：实现分布式环境下的互斥访问，保证数据一致性。</p>
+</li>
+<li><p><strong>领导者选举</strong>：在分布式系统中选举出一个领导者，负责协调其他节点的工作。</p>
+</li>
+<li><p><strong>分布式队列</strong>：实现分布式环境下的队列功能，保证消息的顺序处理。</p>
+</li>
+<li><p><strong>命名服务</strong>：为分布式系统中的资源提供唯一的命名标识。</p>
+</li>
+</ol>
+<h3 id="个人见解：ZooKeeper的技术价值"><a href="#个人见解：ZooKeeper的技术价值" class="headerlink" title="个人见解：ZooKeeper的技术价值"></a>个人见解：ZooKeeper的技术价值</h3><p>ZooKeeper的出现为分布式系统提供了一种可靠的协调服务，其技术价值主要体现在：</p>
+<ol>
+<li><p><strong>简化分布式协调</strong>：ZooKeeper提供了一套简单而强大的API，简化了分布式协调的实现。</p>
+</li>
+<li><p><strong>保证数据一致性</strong>：通过ZAB（ZooKeeper Atomic Broadcast）协议，保证了数据的一致性。</p>
+</li>
+<li><p><strong>高可用性</strong>：通过集群部署，提供了高可用性的服务。</p>
+</li>
+<li><p><strong>可靠性</strong>：ZooKeeper的设计保证了即使在节点故障的情况下，也能正常提供服务。</p>
+</li>
+<li><p><strong>生态系统</strong>：作为Hadoop生态系统的重要组件，与Hadoop、HBase等技术集成良好。</p>
+</li>
+</ol>
+<h2 id="1-zookeeper安装"><a href="#1-zookeeper安装" class="headerlink" title="1.zookeeper安装"></a>1.zookeeper安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gz</span><br><span class="line">tar -zxvf apache-zookeeper-3.6.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p><strong>1.解压完成后修改配置文件，创建并修改存储数据的目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi zoo.cfg</span><br><span class="line">dataDir=/home/zookeeper/zkdata</span><br></pre></td></tr></table></figure>
+<div style="margin:auto;width:70%"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.png" class></div>
+
+<p><strong>2.配置完成后，启动zookeeper</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/zkServer.sh start ./conf/zoo.cfg</span><br></pre></td></tr></table></figure>
+<p><strong>3.启动成功后，通过客户端连接zookeeper</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/zkCli.sh -server 10.0.0.1:2181</span><br></pre></td></tr></table></figure>
+<p>zookeeper常用命令：</p>
+<blockquote><p> ls &#x2F;path  : 查看特定节点下面的子节点<br> create &#x2F;path data:  创建一个节点。并给节点绑定数据<br>    注意：  默认是持久性节点<br>create -s &#x2F;parent&#x2F;childPath :在父节点下面创建持久性顺序子节点<br>create -e  &#x2F;path data  :创建临时性节点<br>create -e -s &#x2F;path  data:  创建临时顺序节点		<br>get &#x2F;path  :获得节点上绑定的数据信息<br>set&#x2F; path data: 修改节点上绑定的数据。<br>delete &#x2F;path  ：删除节点<br>ls &#x2F;path true:在查看的时候。给节点设置监听： 监听本节点数据的修改和删除。同时监听子节点的添加和删除<br>get &#x2F;path true:  监听本节点数据的修改和删除。同时监听子节点的添加和删除</p>
+</blockquote>
+
+<h2 id="2-zookeeper分布式集群搭建"><a href="#2-zookeeper分布式集群搭建" class="headerlink" title="2. zookeeper分布式集群搭建"></a>2. zookeeper分布式集群搭建</h2><p> 生产环境下最少3个节点</p>
+<table>
+<thead>
+<tr>
+<th align="center">节点</th>
+<th align="center">IP</th>
+<th align="center">data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">zookeeper1</td>
+<td align="center">10.0.0.1</td>
+<td align="center">&#x2F;home&#x2F;zookeeper&#x2F;zkdata</td>
+</tr>
+<tr>
+<td align="center">zookeeper2</td>
+<td align="center">10.0.0.2</td>
+<td align="center">&#x2F;home&#x2F;zookeeper&#x2F;zkdata</td>
+</tr>
+<tr>
+<td align="center">zookeeper3</td>
+<td align="center">10.0.0.3</td>
+<td align="center">&#x2F;home&#x2F;zookeeper&#x2F;zkdata</td>
+</tr>
+</tbody></table>
+<p><strong>1.创建存储数据的文件夹</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> zkdata</span><br><span class="line"><span class="built_in">touch</span> ./zkdata/myid</span><br></pre></td></tr></table></figure>
+<p>myid的内容是服务器表示 1|2|3|</p>
+<p><strong>2.修改zookeeper的cfg文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">dataDir=/home/zookeeper/zkdata</span><br><span class="line">clientPort=2181</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br><span class="line">server.1=10.0.0.1:2888:3888</span><br><span class="line">server.2=10.0.0.2:2888:3888</span><br><span class="line">server.3=10.0.0.3:2888:3888</span><br></pre></td></tr></table></figure>
+<p>server.X :x为服务器的唯一标识。<br>10.0.0.1：服务器所在的ip地址<br>2888：数据同步使用的端口号<br>3888：选举使用的端口号</p>
+<p><strong>3.分别启动zookeeper</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/zkServer.sh start ./conf/zoo.cfg</span><br></pre></td></tr></table></figure>
+<p>查看zookeeper的状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/zkServer.sh status ./conf/zoo.cfg</span><br></pre></td></tr></table></figure>
+<p><strong>4.任意连接一个zookeeper操作</strong></p>
+<h2 id="3-zookeeper开机自启动脚本"><a href="#3-zookeeper开机自启动脚本" class="headerlink" title="3.zookeeper开机自启动脚本"></a>3.zookeeper开机自启动脚本</h2><p>进入到&#x2F;etc&#x2F;init.d&#x2F;目录下，创建zookeeper文件，复制以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#chkconfig:2345 20 90</span></span><br><span class="line"><span class="comment">#description:zookeeper</span></span><br><span class="line"><span class="comment">#processname:zookeeper</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64/jre/</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">          start) su root /home/zookeeper/bin/zkServer.sh start;;</span><br><span class="line">          stop) su root /home/zookeeper/bin/zkServer.sh stop;;</span><br><span class="line">          status) su root /home/zookeeper/bin/zkServer.sh status;;</span><br><span class="line">          restart) su root /home/zookeeper/bin/zkServer.sh restart;;</span><br><span class="line">          *)  <span class="built_in">echo</span> <span class="string">&quot;require start|stop|status|restart&quot;</span>  ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<p>权限管理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x zookeeper</span><br><span class="line">chkconfig --add zookeeper</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-ZooKeeper的核心概念"><a href="#4-ZooKeeper的核心概念" class="headerlink" title="4.ZooKeeper的核心概念"></a>4.ZooKeeper的核心概念</h2><h3 id="1-数据模型"><a href="#1-数据模型" class="headerlink" title="1. 数据模型"></a>1. 数据模型</h3><p>ZooKeeper使用树形结构来组织数据，类似于文件系统：</p>
+<ul>
+<li><strong>节点（Node）</strong>：ZooKeeper中的数据单元，类似于文件系统中的文件或目录。</li>
+<li><strong>路径（Path）</strong>：每个节点都有一个唯一的路径，如 <code>/app/config</code>。</li>
+<li><strong>数据（Data）</strong>：节点可以存储少量数据，通常不超过1MB。</li>
+<li><strong>版本（Version）</strong>：每个节点都有一个版本号，每次修改都会递增。</li>
+</ul>
+<h3 id="2-节点类型"><a href="#2-节点类型" class="headerlink" title="2. 节点类型"></a>2. 节点类型</h3><p>ZooKeeper支持以下几种节点类型：</p>
+<ul>
+<li><strong>持久节点（Persistent）</strong>：创建后一直存在，直到被显式删除。</li>
+<li><strong>临时节点（Ephemeral）</strong>：创建者会话结束后自动删除。</li>
+<li><strong>顺序节点（Sequential）</strong>：创建时会自动在路径后添加一个递增的序号。</li>
+</ul>
+<h3 id="3-会话（Session）"><a href="#3-会话（Session）" class="headerlink" title="3. 会话（Session）"></a>3. 会话（Session）</h3><p>客户端与ZooKeeper服务器之间的连接称为会话：</p>
+<ul>
+<li><strong>会话超时</strong>：如果客户端在一定时间内没有发送心跳，会话会被视为过期。</li>
+<li><strong>会话恢复</strong>：客户端可以在会话过期前重新连接，恢复会话状态。</li>
+</ul>
+<h3 id="4-监视（Watch）"><a href="#4-监视（Watch）" class="headerlink" title="4. 监视（Watch）"></a>4. 监视（Watch）</h3><p>ZooKeeper支持对节点的监视：</p>
+<ul>
+<li><strong>数据监视</strong>：监视节点数据的变化。</li>
+<li><strong>子节点监视</strong>：监视子节点的变化。</li>
+<li><strong>一次性触发</strong>：监视是一次性的，触发后需要重新注册。</li>
+</ul>
+<h3 id="5-ZAB协议"><a href="#5-ZAB协议" class="headerlink" title="5. ZAB协议"></a>5. ZAB协议</h3><p>ZooKeeper使用ZAB（ZooKeeper Atomic Broadcast）协议来保证数据一致性：</p>
+<ul>
+<li><strong>崩溃恢复</strong>：当领导者节点故障时，选举新的领导者。</li>
+<li><strong>原子广播</strong>：保证所有变更操作的顺序一致性。</li>
+</ul>
+<h2 id="5-ZooKeeper性能优化"><a href="#5-ZooKeeper性能优化" class="headerlink" title="5.ZooKeeper性能优化"></a>5.ZooKeeper性能优化</h2><h3 id="1-配置优化"><a href="#1-配置优化" class="headerlink" title="1. 配置优化"></a>1. 配置优化</h3><ul>
+<li><strong>调整内存</strong>：根据集群规模和负载，调整JVM内存大小。</li>
+<li><strong>配置日志</strong>：合理配置日志级别和滚动策略，避免日志过大。</li>
+<li><strong>调整快照频率</strong>：根据数据量和变更频率，调整快照生成频率。</li>
+</ul>
+<h3 id="2-集群优化"><a href="#2-集群优化" class="headerlink" title="2. 集群优化"></a>2. 集群优化</h3><ul>
+<li><strong>合理规划集群规模</strong>：通常3-5个节点即可满足大多数场景的需求。</li>
+<li><strong>网络优化</strong>：确保集群节点之间网络通畅，延迟低。</li>
+<li><strong>磁盘优化</strong>：使用SSD存储，提高读写性能。</li>
+</ul>
+<h3 id="3-客户端优化"><a href="#3-客户端优化" class="headerlink" title="3. 客户端优化"></a>3. 客户端优化</h3><ul>
+<li><strong>连接池</strong>：使用连接池管理客户端连接，减少连接开销。</li>
+<li><strong>会话管理</strong>：合理设置会话超时时间，避免频繁重连。</li>
+<li><strong>批量操作</strong>：使用批量API减少网络往返次数。</li>
+<li><strong>监视管理</strong>：合理使用监视，避免过度注册监视。</li>
+</ul>
+<h3 id="4-应用优化"><a href="#4-应用优化" class="headerlink" title="4. 应用优化"></a>4. 应用优化</h3><ul>
+<li><strong>数据结构设计</strong>：合理设计ZooKeeper的数据结构，避免过深的层次。</li>
+<li><strong>数据量控制</strong>：每个节点的数据量控制在1MB以内，避免存储大量数据。</li>
+<li><strong>避免频繁写操作</strong>：ZooKeeper更适合读多写少的场景。</li>
+</ul>
+<h2 id="6-ZooKeeper的发展趋势"><a href="#6-ZooKeeper的发展趋势" class="headerlink" title="6.ZooKeeper的发展趋势"></a>6.ZooKeeper的发展趋势</h2><h3 id="1-技术演进"><a href="#1-技术演进" class="headerlink" title="1. 技术演进"></a>1. 技术演进</h3><p>ZooKeeper作为一个成熟的分布式协调服务，一直在不断演进：</p>
+<ul>
+<li><strong>版本更新</strong>：从3.0到3.6+，ZooKeeper不断添加新特性和改进性能。</li>
+<li><strong>安全性增强</strong>：加强了安全特性，如SASL认证、SSL传输等。</li>
+<li><strong>可扩展性</strong>：改进了集群的可扩展性，支持更大规模的部署。</li>
+<li><strong>云原生支持</strong>：加强了对容器编排平台的支持，如Kubernetes。</li>
+</ul>
+<h3 id="2-与新兴技术的融合"><a href="#2-与新兴技术的融合" class="headerlink" title="2. 与新兴技术的融合"></a>2. 与新兴技术的融合</h3><ul>
+<li><strong>Service Mesh</strong>：与Istio等Service Mesh框架集成，提供服务发现和配置管理功能。</li>
+<li><strong>边缘计算</strong>：支持边缘节点的协调和管理。</li>
+<li><strong>Serverless</strong>：为Serverless架构提供状态管理和协调服务。</li>
+</ul>
+<h3 id="3-未来发展方向"><a href="#3-未来发展方向" class="headerlink" title="3. 未来发展方向"></a>3. 未来发展方向</h3><ul>
+<li><strong>智能化</strong>：引入AI技术，实现集群的智能管理和故障预测。</li>
+<li><strong>易用性</strong>：进一步简化API和配置，提高用户体验。</li>
+<li><strong>性能优化</strong>：持续优化性能，处理更高的并发请求。</li>
+<li><strong>生态系统</strong>：构建更丰富的生态系统，与更多的工具和框架集成。</li>
+</ul>
+<h2 id="7-总结与个人感悟"><a href="#7-总结与个人感悟" class="headerlink" title="7.总结与个人感悟"></a>7.总结与个人感悟</h2><p>ZooKeeper作为一个分布式协调服务，已经在企业级应用中得到了广泛的应用。它的出现为分布式系统提供了一种可靠的协调机制，简化了分布式应用的开发和管理。</p>
+<h3 id="技术价值"><a href="#技术价值" class="headerlink" title="技术价值"></a>技术价值</h3><ul>
+<li><strong>简化分布式协调</strong>：ZooKeeper提供了一套简单而强大的API，简化了分布式协调的实现。</li>
+<li><strong>保证数据一致性</strong>：通过ZAB协议，保证了数据的一致性和可靠性。</li>
+<li><strong>高可用性</strong>：通过集群部署，提供了高可用性的服务。</li>
+<li><strong>生态系统</strong>：作为Hadoop生态系统的重要组件，与Hadoop、HBase等技术集成良好。</li>
+</ul>
+<h3 id="应用价值"><a href="#应用价值" class="headerlink" title="应用价值"></a>应用价值</h3><ul>
+<li><strong>加速分布式应用开发</strong>：ZooKeeper的简单易用，加速了分布式应用的开发。</li>
+<li><strong>提高系统可靠性</strong>：通过分布式协调，提高了系统的可靠性和稳定性。</li>
+<li><strong>支持业务创新</strong>：作为基础服务，ZooKeeper支持了各种业务创新，如微服务架构、分布式系统等。</li>
+</ul>
+<h3 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>作为一名技术人员，我认为ZooKeeper的成功在于它的专注和可靠性。它专注于解决分布式协调的核心问题，提供了简单而强大的解决方案。这种专注和可靠性使得ZooKeeper成为分布式系统中不可或缺的组件。</p>
+<p>在未来的技术发展中，随着分布式系统的不断普及，ZooKeeper将会继续发挥重要的作用。对于我们来说，学习和掌握ZooKeeper不仅是了解一种技术，更是理解分布式系统设计原理的重要途径。</p>
+<p>ZooKeeper的设计理念和实现方式也值得我们学习，它展示了如何构建一个高性能、可靠、易用的分布式系统。这种学习不仅可以帮助我们更好地使用ZooKeeper，还可以启发我们在其他领域的设计和开发。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://root1761.github.io">Louyp</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">https://root1761.github.io/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://root1761.github.io" target="_blank">Louyp</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/zookeeper/">zookeeper</a></div><div class="post_share"><div class="social-share" data-image="/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"><img class="prev-cover" src= "/assets/blogImg/top.jpg" data-lazy-src="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/hadoop.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">hadoop基本介绍和安装使用</div></div></a></div><div class="next-post pull-right"><a href="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"><img class="next-cover" src= "/assets/blogImg/top.jpg" data-lazy-src="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/minio.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">minio安装及集群搭建</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" title="hadoop基本介绍和安装使用"><img class="cover" src= "/assets/blogImg/top.jpg" data-lazy-src="/2020/07/26/hadoop%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/hadoop.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">hadoop基本介绍和安装使用</div></div></a></div><div><a href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用"><img class="cover" src= "/assets/blogImg/top.jpg" data-lazy-src="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/spark.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-05</div><div class="title">spark基本介绍及使用</div></div></a></div><div><a href="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="minio安装及集群搭建"><img class="cover" src= "/assets/blogImg/top.jpg" data-lazy-src="/2020/05/28/minio%E5%AE%89%E8%A3%85%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/minio.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-28</div><div class="title">minio安装及集群搭建</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/assets/blogImg/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Louyp</div><div class="author-info__description">目光所至，心之所向</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ZooKeeper%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">ZooKeeper的实际应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3%EF%BC%9AZooKeeper%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BB%B7%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">个人见解：ZooKeeper的技术价值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-zookeeper%E5%AE%89%E8%A3%85"><span class="toc-number"></span> <span class="toc-text">1.zookeeper安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-zookeeper%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA"><span class="toc-number"></span> <span class="toc-text">2. zookeeper分布式集群搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-zookeeper%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="toc-number"></span> <span class="toc-text">3.zookeeper开机自启动脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-ZooKeeper%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number"></span> <span class="toc-text">4.ZooKeeper的核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1. 数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 节点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BC%9A%E8%AF%9D%EF%BC%88Session%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3. 会话（Session）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%9B%91%E8%A7%86%EF%BC%88Watch%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">4. 监视（Watch）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-ZAB%E5%8D%8F%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">5. ZAB协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-ZooKeeper%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number"></span> <span class="toc-text">5.ZooKeeper性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">1. 配置优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9B%86%E7%BE%A4%E4%BC%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">2. 集群优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">3. 客户端优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BA%94%E7%94%A8%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">4. 应用优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-ZooKeeper%E7%9A%84%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number"></span> <span class="toc-text">6.ZooKeeper的发展趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8A%80%E6%9C%AF%E6%BC%94%E8%BF%9B"><span class="toc-number">1.</span> <span class="toc-text">1. 技术演进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8E%E6%96%B0%E5%85%B4%E6%8A%80%E6%9C%AF%E7%9A%84%E8%9E%8D%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">2. 与新兴技术的融合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-number">3.</span> <span class="toc-text">3. 未来发展方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%80%BB%E7%BB%93%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F"><span class="toc-number"></span> <span class="toc-text">7.总结与个人感悟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BB%B7%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">技术价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%BB%B7%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">应用价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F"><span class="toc-number">3.</span> <span class="toc-text">个人感悟</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/09/hello-world/" title="Hello World"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/assets/hexo.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2026/04/09/hello-world/" title="Hello World">Hello World</a><time datetime="2026-04-09T06:31:50.605Z" title="发表于 2026-04-09 14:31:50">2026-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/spark.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spark基本介绍及使用"/></a><div class="content"><a class="title" href="/2022/08/05/spark%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="spark基本介绍及使用">spark基本介绍及使用</a><time datetime="2022-08-05T02:09:00.000Z" title="发表于 2022-08-05 10:09:00">2022-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/nacos.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nacos安装及使用"/></a><div class="content"><a class="title" href="/2021/04/06/nacos%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="nacos安装及使用">nacos安装及使用</a><time datetime="2021-04-06T02:20:00.000Z" title="发表于 2021-04-06 10:20:00">2021-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/security.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springcloud+spring security oauth2+jwt实现单点登录"/></a><div class="content"><a class="title" href="/2021/01/20/springcloud-spring-security-oauth2-jwt%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" title="springcloud+spring security oauth2+jwt实现单点登录">springcloud+spring security oauth2+jwt实现单点登录</a><time datetime="2021-01-20T09:10:00.000Z" title="发表于 2021-01-20 17:10:00">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍"><img src= "/assets/blogImg/top.jpg" data-lazy-src="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/cloud-ali.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里微服务开发相关介绍"/></a><div class="content"><a class="title" href="/2021/01/20/%E9%98%BF%E9%87%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/" title="阿里微服务开发相关介绍">阿里微服务开发相关介绍</a><time datetime="2021-01-20T01:18:00.000Z" title="发表于 2021-01-20 09:18:00">2021-01-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/2020/07/08/zookeeper%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/zookeeper.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Louyp</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.27/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@9.1.3/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadUtterances () {
+  let ele = document.createElement('script')
+  ele.setAttribute('id', 'utterances_comment')
+  ele.setAttribute('src', 'https://utteranc.es/client.js')
+  ele.setAttribute('repo', 'root1761/root1761.github.io')
+  ele.setAttribute('issue-term', 'pathname')
+  let nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+  ele.setAttribute('theme', nowTheme)
+  ele.setAttribute('crossorigin', 'anonymous')
+  ele.setAttribute('async', 'true')
+  document.getElementById('utterances-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function utterancesTheme () {
+  const iframe = document.querySelector('.utterances-frame')
+  if (iframe) {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    const message = {
+      type: 'set-theme',
+      theme: theme
+    };
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+}
+
+if ('Utterances' === 'Utterances' || !true) {
+  if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+  else loadUtterances()
+} else {
+  function loadOtherComment () {
+    loadUtterances()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
