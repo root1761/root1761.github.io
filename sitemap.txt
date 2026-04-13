@@ -1,7 +1,7 @@
+https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-JVM%E7%AF%87/
 https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-%E6%A1%86%E6%9E%B6%E7%AF%87/
 https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-%E5%B9%B6%E5%8F%91%E7%AF%87/
 https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-%E5%9F%BA%E7%A1%80%E7%AF%87/
-https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-JVM%E7%AF%87/
 https://root1761.github.io/2025/04/12/Java%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87-%E9%9B%86%E5%90%88%E7%AF%87/
 https://root1761.github.io/tags/index.html
 https://root1761.github.io/music/index.html
@@ -26,12 +26,12 @@ https://root1761.github.io/tags/git/
 https://root1761.github.io/tags/JVM/
 https://root1761.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/
 https://root1761.github.io/tags/Java%E5%9F%BA%E7%A1%80/
+https://root1761.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/
+https://root1761.github.io/tags/%E9%9B%86%E5%90%88/
 https://root1761.github.io/tags/linux/
 https://root1761.github.io/tags/hadoop/
 https://root1761.github.io/tags/java/
-https://root1761.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/
 https://root1761.github.io/tags/%E6%A1%86%E6%9E%B6/
-https://root1761.github.io/tags/%E9%9B%86%E5%90%88/
 https://root1761.github.io/tags/%E9%9A%8F%E7%AC%94/
 https://root1761.github.io/tags/minio/
 https://root1761.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/
@@ -45,9 +45,9 @@ https://root1761.github.io/tags/jwt/
 https://root1761.github.io/tags/zookeeper/
 https://root1761.github.io/categories/git/
 https://root1761.github.io/categories/Java/
+https://root1761.github.io/categories/git/Gitment/
 https://root1761.github.io/categories/git/utterances/
 https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/
-https://root1761.github.io/categories/git/Gitment/
 https://root1761.github.io/categories/Java/%E9%9D%A2%E8%AF%95/
 https://root1761.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/
 https://root1761.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/hadoop/
