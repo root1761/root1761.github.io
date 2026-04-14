@@ -41,9 +41,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 面试题 </tag>
             
-            <tag> 框架 </tag>
+            <tag> Java框架 </tag>
             
         </tags>
       
@@ -70,9 +72,11 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
+            <tag> Java </tag>
             
             <tag> JVM </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
@@ -99,9 +103,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 面试题 </tag>
             
-            <tag> 集合 </tag>
+            <tag> Java集合 </tag>
             
         </tags>
       
@@ -127,6 +133,8 @@
       
       
         <tags>
+            
+            <tag> Java </tag>
             
             <tag> 面试题 </tag>
             
@@ -157,9 +165,11 @@
       
         <tags>
             
-            <tag> Java基础 </tag>
+            <tag> Java </tag>
             
             <tag> 面试题 </tag>
+            
+            <tag> Java基础 </tag>
             
         </tags>
       
@@ -186,11 +196,11 @@
       
         <tags>
             
-            <tag> linux </tag>
-            
-            <tag> spark </tag>
-            
             <tag> 大数据 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Spark </tag>
             
             <tag> 机器学习 </tag>
             
@@ -221,9 +231,9 @@
             
             <tag> 微服务 </tag>
             
-            <tag> nacos </tag>
+            <tag> Nacos </tag>
             
-            <tag> springcloud </tag>
+            <tag> Spring Cloud </tag>
             
         </tags>
       
@@ -250,11 +260,13 @@
       
         <tags>
             
-            <tag> springcloud </tag>
+            <tag> 微服务 </tag>
             
-            <tag> oauth2 </tag>
+            <tag> Spring Cloud </tag>
             
-            <tag> jwt </tag>
+            <tag> OAuth2 </tag>
+            
+            <tag> JWT </tag>
             
         </tags>
       
@@ -281,9 +293,11 @@
       
         <tags>
             
-            <tag> java </tag>
+            <tag> Java </tag>
             
-            <tag> springcloud </tag>
+            <tag> 微服务 </tag>
+            
+            <tag> Spring Cloud </tag>
             
         </tags>
       
@@ -310,11 +324,13 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Java </tag>
             
-            <tag> hadoop </tag>
+            <tag> 大数据 </tag>
             
-            <tag> java </tag>
+            <tag> Hadoop </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -341,9 +357,11 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> 大数据 </tag>
             
-            <tag> zookeeper </tag>
+            <tag> Linux </tag>
+            
+            <tag> ZooKeeper </tag>
             
         </tags>
       
@@ -370,11 +388,13 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Java </tag>
             
-            <tag> java </tag>
+            <tag> Linux </tag>
             
-            <tag> minio </tag>
+            <tag> 微服务 </tag>
+            
+            <tag> MinIO </tag>
             
         </tags>
       
@@ -401,9 +421,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
+            <tag> Hexo </tag>
             
-            <tag> git </tag>
+            <tag> Git </tag>
             
         </tags>
       
@@ -430,9 +450,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
+            <tag> Hexo </tag>
             
-            <tag> git </tag>
+            <tag> Git </tag>
             
         </tags>
       
